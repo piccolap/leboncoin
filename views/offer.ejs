@@ -1,0 +1,22 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    <div>
+        <img src ='<%= offer.offerPicture %>' alt='photo'/>
+    </div>
+    <div>
+        <%= offer.nickName %>
+    </div>
+    <div>
+        <%= offer.offerPrice %>
+    </div>
+    <div>
+        <%= offer.offerCity %>
+    </div>
+    <div>
+        <%= offer.offerText %>
+    </div>
+</div>
+
+
+<% include partials/footer.ejs %>
