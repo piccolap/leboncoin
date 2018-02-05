@@ -1,0 +1,54 @@
+<% include partials/header.ejs %>
+
+<form action="/deposer" method="POST" enctype="multipart/form-data">
+
+    <section class="section1">
+        <div class="head">
+            <p>Votre annonce</p>
+        </div>
+        <div>
+            Titre de l'annonce<br>
+            <input type="text" name="offerTitle"><br>
+            Texte de l'annonce<br>
+            <input type="textarea" name="offerText">
+            Prix<br>
+            <input type="text" name="offerPrice">
+            Photo<br>
+            <input type="file" name="offerPicture">
+        </div>
+    </section>
+
+    <section class="section1">
+        <div class="head">
+            <p>Localisation</p>
+        </div>
+        <div>
+            Ville ou Code Postal<br>
+            <input type="text" name="offerCity"><br>
+        </div>
+    </section>
+
+    <section class="section3">
+        <div class="head">
+            <p>Vos informations</p>
+        </div>
+        <div>
+            Pseudo<br>
+            <input type="text" name="nickName"><br>
+            Email<br>
+            <input type="email" name="email"><br>
+            Pseudo<br>
+            <input type="text" name="phoneNumber"><br>
+        </div><br>
+
+        <button type='submit'>Valider</button>
+        
+    </section>
+
+</form>
+
+
+
+
+
+<% include partials/footer.ejs %>
