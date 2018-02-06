@@ -1,0 +1,30 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    <% for (var i = 0; i < offers.length; i++) { %>
+    <div class="offer">
+        <div>
+            <img src ='/uploads/<%= offers[i].offerPicture %>' alt='photo'/>
+        </div>
+        <div>
+            <%= offers[i].nickName %>
+        </div>
+        <div>
+            <%= offers[i].offerPrice %>
+        </div>
+        <div>
+            <%= offers[i].offerCity %>
+        </div>
+        <div>
+            <%= offers[i].offerText %>
+        </div>
+        <div>
+            <%= offers[i].email %>
+        </div>
+    </div>
+    
+    <% } %>
+</div>
+
+
+<% include partials/footer.ejs %>

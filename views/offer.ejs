@@ -2,7 +2,7 @@
 
 <div class="container">
     <div>
-        <img src ='<%= offer.offerPicture %>' alt='photo'/>
+        <img src ='/uploads/<%= offer.offerPicture %>' alt='photo'/>
     </div>
     <div>
         <%= offer.nickName %>
@@ -15,6 +15,9 @@
     </div>
     <div>
         <%= offer.offerText %>
+    </div>
+    <div>
+        <%= offer.email %>
     </div>
 </div>
 
