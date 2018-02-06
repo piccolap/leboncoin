@@ -1,25 +1,30 @@
 <% include partials/header.ejs %>
 
-<div class="container">
-    <div>
-        <img src ='/uploads/<%= offer.offerPicture %>' alt='photo'/>
-    </div>
-    <div>
-        <%= offer.nickName %>
-    </div>
-    <div>
-        <%= offer.offerPrice %>
-    </div>
-    <div>
-        <%= offer.offerCity %>
-    </div>
-    <div>
-        <%= offer.offerText %>
-    </div>
-    <div>
-        <%= offer.email %>
+<div class="allOffers">
+    <div class="adContainer d-flex">
+        <div class="adImg">
+            <img src ='/uploads/<%= offer.offerPicture %>' alt='photo'/>
+        </div>
+        <div class="adText">
+            <div>
+                <%= offer.nickName %>
+            </div>
+            <div>
+                <%= offer.offerPrice %>
+            </div>
+            <div>
+                <%= offer.offerCity %>
+            </div>
+            <div>
+                <%= offer.offerText %>
+            </div>
+            <div>
+                <%= offer.email %>
+            </div>
+        </div>
     </div>
 </div>
+    
 
 
 <% include partials/footer.ejs %>

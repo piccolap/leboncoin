@@ -1,29 +1,26 @@
 <% include partials/header.ejs %>
 
 <div class="container">
+    <div class="allOffers">
     <% for (var i = 0; i < offers.length; i++) { %>
-    <div class="offer">
-        <div>
-            <img src ='/uploads/<%= offers[i].offerPicture %>' alt='photo'/>
+        <div class="adContainer d-flex">
+            <div class="adImg">
+                <img src="/uploads/<%= offers[i].offerPicture %>" alt="photo"/>
+            </div>
+            <div class="adText">
+                <h5>
+                    <%= offers[i].offerTitle %>
+                </h5>
+                <div class="adCity">
+                    <%= offers[i].offerCity %>
+                </div>
+                <div class="adPrice">
+                    <%= offers[i].offerPrice %>
+                </div>
+            </div>
         </div>
-        <div>
-            <%= offers[i].nickName %>
-        </div>
-        <div>
-            <%= offers[i].offerPrice %>
-        </div>
-        <div>
-            <%= offers[i].offerCity %>
-        </div>
-        <div>
-            <%= offers[i].offerText %>
-        </div>
-        <div>
-            <%= offers[i].email %>
-        </div>
-    </div>
-    
     <% } %>
+</div>
 </div>
 
 

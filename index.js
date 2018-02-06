@@ -3,20 +3,24 @@ var app = express();
 var bodyParser = require('body-parser');
 var _ = require("lodash");
 
-var offers = [
-    {
-        id: 0,
-        offerTitle: "mon titre",
-        offerText: "super lampe à vendre",
-        offerPrice: "100 €",
-        offerPicture: "aebfd6fb84b7721e3f9971c491b10cfa",
-        offerCity: "Paris",
-        nickName: "lilie",
-        email: 'rama@gmail.com',
-        phoneNumber: '0650505050',
-    }
-];
-var idCounter = 0;
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://10.90.0.34:27017/leboncoin-Tsiry");
+
+var offerSchema = new mongoose.Schema({
+    offerTitle: String,
+    offerText: String,
+    offerPrice: String,
+    offerPicture: String,
+    offerCity: String,
+    nickName: String,
+    email: String,
+    phoneNumber: String,
+    created: { type: Date, default: Date.now }
+  });
+
+var BDOffer = mongoose.model("BDOffer", offerSchema);
+
+// var idCounter = 0;
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -26,45 +30,61 @@ var upload = multer ({dest: 'public/uploads/'});
 app.use(express.static("public"));
 
 app.get('/', function(req, res){
-    res.render('home.ejs', {offers: offers});
+    BDOffer.find({}, function(err, offers){
+        if(!err) {
+            res.render('home.ejs', {offers: offers});
+        }
+    }) 
 });
+
+// Student.find({}, function(err, students) {
+//     if (!err) {
+//       console.log(students);
 
 app.get('/deposer', function(req, res) {
     res.render('placeAnOffer.ejs');
 });
 
 app.post('/deposer', upload.single("offerPicture"), function(req, res){
-    var offerTitle = req.body.offerTitle;
-    var offerText = req.body.offerText;
-    var offerPrice = req.body.offerPrice;
-    var offerPicture = req.file.filename;
-    var nickName = req.body.nickName;
-    var email = req.body.email;
-    var phoneNumber = req.body.phoneNumber;
-    var offerCity = req.body.offerCity;
+    // var offerTitle = req.body.offerTitle;
+    // var offerText = req.body.offerText;
+    // var offerPrice = req.body.offerPrice;
+    // var offerPicture = req.file.filename;
+    // var nickName = req.body.nickName;
+    // var email = req.body.email;
+    // var phoneNumber = req.body.phoneNumber;
+    // var offerCity = req.body.offerCity;
     
-    var newOffer = {
-        id: idCounter,
-        offerTitle: offerTitle,
-        offerText: offerText,
-        offerPrice: offerPrice,
-        offerPicture: offerPicture,
-        offerCity: offerCity,
-        nickName: nickName,
-        email: email,
-        phoneNumber: phoneNumber,
-    };
+    var newOffer = new BDOffer({
+        offerTitle: req.body.offerTitle,
+        offerText: req.body.offerText,
+        offerPrice: req.body.offerPrice,
+        offerPicture: req.file.filename,
+        offerCity: req.body.offerCity,
+        nickName: req.body.nickName,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+    });
 
-    offers.push(newOffer);
+    newOffer.save(function(err, obj) {
+        if (err) {
+          console.log("something went wrong");
+        } else {
+          console.log("we just saved the new Offer " + obj.name);
+        }res.redirect('/annonce/'+ obj._id);
+      });
+    // offers.push(newOffer);
     //push the new ads
-    res.redirect('/annonce/'+ idCounter);
-
-    idCounter++;
+    // idCounter++;
 });
 
 app.get('/annonce/:id', function(req, res){
-    var offer = _.find(offers, ['id', parseInt(req.params.id)]);
-    res.render('offer.ejs', {offer: offer});
+    BDOffer.find({offer:offer}, function(err, offer){
+        if(!err) {
+    // var offer = _.find(offers, ['id', parseInt(req.params.id)]);
+        res.render('offer.ejs', {offer: offer});
+        }
+    })
 });
 
 app.listen(3000, function() {

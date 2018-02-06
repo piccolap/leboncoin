@@ -65,4 +65,35 @@ h3 {
     
 }
 
+.allOffers {
+    margin-top:20px;
+}
+.adContainer {
+    padding: 10px;
+    border: solid 1px rgba(86,86,86, 0.3);
+    margin-bottom:20px;
+}
+.adImg {
+    width: 200px;
+}
+.adImg img {
+    width: 100%;
+}
+.adText {
+    flex: 1;
+    padding-left:25px;
+}
 
+.adText h5 {
+    color: #306DC0;
+}
+
+.adCity {
+    padding-top:30px;
+}
+
+.adPrice {
+    padding-top:30px;
+    color:rgb(255,127,0);
+    font-weight:bold;
+}
