@@ -1,0 +1,63 @@
+<% include partials/header.ejs %>
+
+        <h3>Modifier votre annonce</h3>
+        <form action="/annonce/<%= offer._id %>/editer" method="POST" enctype="multipart/form-data">
+            <div class="form-block">
+                <header><h2>Votre annonce</h2></header>
+
+                <div class="form-group">
+                    <h4>Vous êtes un*</h4>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="inlineCheckbox1" value="Particulier" checked name="adType">
+                        <label class="form-check-label" for="inlineCheckbox1">Particulier</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="inlineCheckbox2" value="Professionnel" name="adType">
+                        <label class="form-check-label" for="inlineCheckbox2">Professionnel</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="title">Titre de l'annonce</label>
+                    <input type="text" class="form-control" id="title" name="offerTitle" value="<%= offer.offerTitle %>">
+                </div>
+                <div class="form-group">
+                    <label for="description">Texte de l'annonce</label>
+                    <textarea class="form-control" id="description" rows="3" name="offerText"><%= offer.offerText %></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix</label>
+                    <input type="text" class="form-control" id="price" name="offerPrice" value="<%= offer.offerPrice %>">
+                </div>
+                <div class="form-group">
+                    <label for="picture">Photo</label>
+                    <input type="file" class="form-control" id="picture" name="offerPicture" value="<%= offer.offerPicture %>">
+                </div>
+            </div>
+            <div class="form-block">
+                <header><h2>Localisation</h2></header>      
+                <div class="form-group">
+                    <label for="postalCode">Ville ou Code Postal</label>
+                    <input type="text" class="form-control" id="postalCode" name="offerCity" value="<%= offer.offerCity %>">
+                </div>
+            </div>
+
+            <div class="form-block">
+                <header><h2>Vos informations</h2></header>      
+                <div class="form-group">
+                    <label for="nickName">Pseudo</label>
+                    <input type="text" class="form-control" id="nickName" name="nickName" value="<%= offer.nickName %>">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="nickName" name="email" value="<%= offer.email %>">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="text" class="form-control" id="phone" name="phoneNumber" value="<%= offer.phoneNumber %>">
+                    <button type='submit'>Valider</button>
+                </div>
+            </div>
+        </form>
+        
+
+<% include partials/footer.ejs %>

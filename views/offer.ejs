@@ -1,26 +1,47 @@
 <% include partials/header.ejs %>
 
 <div class="allOffers">
-    <div class="adContainer d-flex">
-        <div class="adImg">
-            <img src ='/uploads/<%= offer.offerPicture %>' alt='photo'/>
-        </div>
-        <div class="adText">
-            <div>
+    <div class="adContainer-1 d-flex">
+        <div class="block-1 col-md-8">
+            <div class="adImg-1">
+                <img src="<%= offer.offerPicture ? "/uploads/" + offer.offerPicture : "/img/defaultAd.jpg" %>" alt="photo"/>
+            </div>
+            <div class="adText">
+                <div class="offer-title">
+                    <%= offer.offerTitle %>
+                </div>
+                <div class="nickName-1">
+                    <%= offer.nickName %>
+                </div>
+                <div class="offer-price">
+                    <%= offer.offerPrice %>
+                </div>
+                <div class="description-lign">
+                    <h6>Description</h6>
+                    <%= offer.offerText %>
+                </div><br>
+                <a href="/annonce/<%= offer._id %>/editer" ><button class="edit">Modifier</button></a>
+                <a href="/delete/<%= offer._id %>" ><button class="edit">Supprimer</button></a>
+                <div>
+                        
+                    <h6>Localisation</h6>
+                    <%= offer.offerCity %>
+                </div>
+
+                <!-- <div>
+                    <%= offer.email %>
+                </div> -->
+            </div>
+        </div> 
+        <div class="block-2 col-md-4">
+            <div class="nickName-2">
                 <%= offer.nickName %>
             </div>
-            <div>
-                <%= offer.offerPrice %>
-            </div>
-            <div>
-                <%= offer.offerCity %>
-            </div>
-            <div>
-                <%= offer.offerText %>
-            </div>
-            <div>
-                <%= offer.email %>
-            </div>
+        
+            <button class="showNumber" id="<%= offer._id %>">Voir le numéro</button>
+            <button class="number d-none"></button>
+            <button id="email">Envoyer un Email</button>
+    
         </div>
     </div>
 </div>

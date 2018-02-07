@@ -3,22 +3,24 @@
 <div class="container">
     <div class="allOffers">
     <% for (var i = 0; i < offers.length; i++) { %>
-        <div class="adContainer d-flex">
-            <div class="adImg">
-                <img src="/uploads/<%= offers[i].offerPicture %>" alt="photo"/>
-            </div>
-            <div class="adText">
-                <h5>
-                    <%= offers[i].offerTitle %>
-                </h5>
-                <div class="adCity">
-                    <%= offers[i].offerCity %>
+        <a class="no-decoration" href="/annonce/<%=offers[i]._id%>"/>
+            <div class="adContainer d-flex">
+                <div class="adImg">
+                    <img src="/uploads/<%= offers[i].offerPicture %>" alt="photo"/>
                 </div>
-                <div class="adPrice">
-                    <%= offers[i].offerPrice %>
+                <div class="adText">
+                        <h5>
+                            <%= offers[i].offerTitle %>
+                        </h5>
+                    <div class="adCity">
+                        <%= offers[i].offerCity %>
+                    </div>
+                    <div class="adPrice">
+                        <%= offers[i].offerPrice %>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     <% } %>
 </div>
 </div>

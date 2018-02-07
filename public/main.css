@@ -97,3 +97,102 @@ h3 {
     color:rgb(255,127,0);
     font-weight:bold;
 }
+a.no-decoration {
+    text-decoration: none;
+}
+/*offre*/
+
+.adImg-1{
+    width:100%;
+    height: 500px;
+}
+.adImg-1 img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.adContainer-1 {
+    padding: 10px;
+    border: solid 1px rgba(86,86,86, 0.3);
+
+}
+.offer-title {
+    font-size:18px;
+    font-weight:bold;
+    line-height:27px;
+    padding:5px;
+}
+
+.nickName-1 {
+    text-transform:uppercase;
+}
+.offer-price {
+    padding:5px;
+    color:rgb(255,127,0);
+    font-weight:bold;
+}
+.edit {
+    padding:10px;
+    width:100px;
+    background-color:#387CDA;
+    border-radius:5px;
+    text-decoration:none;
+    color:#ffffff;
+}
+
+h6 {
+    font-size:16px;
+    font-weight:bold;
+    line-height:24px;
+    padding-top:10px;
+}
+.description-lign {
+    border-top: solid 1px rgba(86,86,86, 0.3);
+}
+
+.block-2 {
+    padding-left:22px;
+    height:200px;
+    background-color: white;
+}
+
+.nickName-2 {
+    text-align: center;
+}
+
+.showNumber,
+.number,
+#email {
+    margin:10px 0;
+    width: 100%;
+    border-radius:5px;
+    padding:10px;
+    cursor: pointer;
+}
+
+.showNumber,
+#email {
+    color:white;
+    border: none;
+}
+
+.showNumber {
+    background-color: rgb(255,127,0);
+}
+
+.number {
+    background-color:white;
+    color: rgb(255,127,0);
+    border: solid 1px rgb(255,127,0);
+}
+
+.number:hover {
+    background-color: rgba(255,127,0, 0.1);
+}
+
+#email {
+    background-color: #387CDA;
+    
+}
